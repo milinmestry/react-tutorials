@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
 
@@ -15,6 +16,17 @@ const user = {
 const elementWelcomeUser = (
   <h1>Hello {formatName(user)}!</h1>
 );
+
+function tick() {
+  const element = (
+    <div>
+      <code>{new Date().toLocaleTimeString()}</code>
+    </div>
+  );
+  ReactDOM.render(element, document.getElementById('clock-tick'));
+};
+
+setInterval(tick, 1000);
 
 class App extends Component {
   render() {
