@@ -28,6 +28,15 @@ function tick() {
 
 setInterval(tick, 1000);
 
+/**
+ * Component and props demo
+ */
+function Welcome(props) {
+  return <h3>Welcome, {props.name}</h3>;
+}
+
+const elementWelcomeProps = <Welcome name="Bhargavi" />
+
 class App extends Component {
   render() {
     return (
@@ -37,6 +46,7 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
+          {elementWelcomeProps}
           {elementWelcomeUser}
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
