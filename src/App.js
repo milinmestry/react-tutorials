@@ -35,6 +35,7 @@ function Welcome(props) {
   return <h3>Welcome, {props.name}</h3>;
 }
 
+
 const elementWelcomeProps = <Welcome name="Bhargavi" />
 
 class App extends Component {
@@ -46,10 +47,10 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          {elementWelcomeProps}
-          {elementWelcomeUser}
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        {elementWelcomeUser}
+        {elementWelcomeProps}
       </div>
     );
   }
@@ -57,3 +58,4 @@ class App extends Component {
 
 
 export default App;
+// export default Comment;
