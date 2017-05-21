@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
+import Clock from './Clock';
 
 
 function formatName(User) {
@@ -18,12 +19,9 @@ const elementWelcomeUser = (
 );
 
 function tick() {
-  const element = (
-    <div>
-      <code>{new Date().toLocaleTimeString()}</code>
-    </div>
-  );
-  ReactDOM.render(element, document.getElementById('clock-tick'));
+  ReactDOM.render(
+    <Clock date={new Date()} />,
+    document.getElementById('clock-tick'));
 };
 
 setInterval(tick, 1000);
