@@ -20,8 +20,9 @@ const elementWelcomeUser = (
 
 function tick() {
   ReactDOM.render(
-    <Clock date={new Date()} />,
-    document.getElementById('clock-tick'));
+    <Clock />,
+    document.getElementById('clock-tick')
+  );
 };
 
 setInterval(tick, 1000);
