@@ -28,12 +28,10 @@ function tick() {
 
 setInterval(tick, 1000);
 
-// function toggleButton() {
-  ReactDOM.render(
-    <ButtonToggle />,
-    document.getElementById('toggle-button')
-  );
-// };
+ReactDOM.render(
+  <ButtonToggle />,
+  document.getElementById('toggle-button')
+);
 
 /**
  * Component and props demo
