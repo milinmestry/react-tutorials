@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
 import Clock from './Clock';
+import ButtonToggle from './ButtonToggle';
 
 
 function formatName(User) {
@@ -26,6 +27,13 @@ function tick() {
 };
 
 setInterval(tick, 1000);
+
+// function toggleButton() {
+  ReactDOM.render(
+    <ButtonToggle />,
+    document.getElementById('toggle-button')
+  );
+// };
 
 /**
  * Component and props demo
