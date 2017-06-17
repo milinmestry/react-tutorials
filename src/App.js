@@ -4,6 +4,7 @@ import logo from './logo.svg';
 import './App.css';
 import Clock from './Clock';
 import ButtonToggle from './ButtonToggle';
+import LoginControl from './LoginControl';
 
 
 function formatName(User) {
@@ -31,6 +32,11 @@ setInterval(tick, 1000);
 ReactDOM.render(
   <ButtonToggle />,
   document.getElementById('toggle-button')
+);
+
+ReactDOM.render(
+  <LoginControl />,
+  document.getElementById('login-control')
 );
 
 /**
