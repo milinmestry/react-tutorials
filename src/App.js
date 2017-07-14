@@ -5,6 +5,7 @@ import './App.css';
 import Clock from './Clock';
 import ButtonToggle from './ButtonToggle';
 import LoginControl from './LoginControl';
+import NameForm from './NameForm';
 
 
 function formatName(User) {
@@ -39,6 +40,11 @@ ReactDOM.render(
   document.getElementById('login-control')
 );
 
+ReactDOM.render(
+  <NameForm />,
+  document.getElementById('form')
+);
+
 /**
  * Component and props demo
  */
@@ -71,7 +77,7 @@ function NumberList(props) {
     // <ListItem key={number.toString()} value={number} />
     // <li key={number.toString()}>{number}</li>
   // );
-  
+
   // return (
   //   <ul>{listItems}</ul>
   // );

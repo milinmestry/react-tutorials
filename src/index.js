@@ -15,7 +15,7 @@ const comment = {
   date: new Date(),
   text: "Hello Kitty! How are you doing?",
   author: {
-    name: "Sameer Vora",
+    name: "Raanbir kappoor",
     avatarUrl: "http://placekitten.com/g/64/64",
   }
 };
