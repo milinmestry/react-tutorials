@@ -40,10 +40,15 @@ ReactDOM.render(
   document.getElementById('login-control')
 );
 
-ReactDOM.render(
-  <NameForm />,
-  document.getElementById('form')
-);
+// ReactDOM.render(
+//   <NameForm />,
+//   document.getElementById('textbox')
+// );
+
+// ReactDOM.render(
+//   <FlavorForm />,
+//   document.getElementById('form')
+// );
 
 /**
  * Component and props demo
@@ -142,6 +147,7 @@ class App extends Component {
     );
   }
 }
+
 
 
 export default App;
