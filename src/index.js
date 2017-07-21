@@ -1,12 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
+import AppTempratureCalc from './AppTempratureCalc';
 import Comment from './Comment';
 import './index.css';
 
 ReactDOM.render(
   <App />,
   document.getElementById('root')
+);
+
+ReactDOM.render(
+  <AppTempratureCalc />,
+  document.getElementById('temprature-calc')
 );
 
 
