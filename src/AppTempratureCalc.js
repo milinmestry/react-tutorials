@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import Calculator from './Calculator';
 
-const elementCalc = <Calculator />
-
 class AppTempratureCalc extends Component {
   render() {
     return (
@@ -10,7 +8,7 @@ class AppTempratureCalc extends Component {
         <p className="App-intro">
           Temprature Calculator
         </p>
-        {elementCalc}
+        <Calculator />
       </div>
     );
   }
