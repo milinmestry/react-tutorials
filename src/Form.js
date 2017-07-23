@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 // import ReactDOM from 'react-dom';
 import FlavorForm from './FlavorForm';
 import NameForm from './NameForm';
+import Reservation from './Reservation';
 
 
 const elementTextbox = <NameForm />
 const elementSelect = <FlavorForm />
+const elementReservation = <Reservation />
 
 
 class Form extends Component {
@@ -20,6 +22,7 @@ class Form extends Component {
         </p>
         <div id="textbox">{elementTextbox}</div>
         <div id="select">{elementSelect}</div>
+        <div>{elementReservation}</div>
       </div>
 
     );
