@@ -5,7 +5,7 @@ import './App.css';
 import Clock from './Clock';
 import ButtonToggle from './ButtonToggle';
 import LoginControl from './LoginControl';
-import NameForm from './NameForm';
+// import NameForm from './NameForm';
 
 
 function formatName(User) {

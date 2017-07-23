@@ -1,20 +1,19 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import FlavorForm from './FlavorForm';
+import NameForm from './NameForm';
 
 
+const elementTextbox = <NameForm />
+const elementSelect = <FlavorForm />
 
-ReactDOM.render(
-  <FlavorForm />,
-  document.getElementById('form')
-);
 
 class Form extends Component {
   render() {
     return (
       <div className="App">
-        <div id="textbox"></div>
-        <div id="select"></div>
+        <div id="textbox">{elementTextbox}</div>
+        <div id="select">{elementSelect}</div>
       </div>
 
     );
