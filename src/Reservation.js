@@ -31,10 +31,10 @@ class Reservation extends React.Component {
         <br />
         <label>
           Number of Guests: <input name="numberOfGuests" type="number"
-          checked={this.state.numberOfGuests} onChange={this.handleChangeInput} />
+          value={this.state.numberOfGuests} onChange={this.handleChangeInput} />
         </label>
       </form>
-    )
+    );
   }
 }
 
