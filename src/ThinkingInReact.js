@@ -10,11 +10,13 @@ class ProductRow extends React.Component {
   render() {
     var name = this.props.product.stocked
       ? this.props.product.name
-      : <span style={{color: 'red'}}>{this.props.product.name}</span>
+      : <span style={{color: 'red'}}>{this.props.product.name}</span>;
+    var stockStr = this.props.product.stocked ? 'Yes' : 'No';
     return (
       <tr>
         <td>{name}</td>
         <td>{this.props.product.price}</td>
+        <td>{stockStr}</td>
       </tr>
     );
   }
@@ -42,11 +44,12 @@ class ProductTable extends React.Component {
     });
 
     return(
-      <table>
+      <table className="border-black-1">
         <thead>
           <tr>
             <th>Name</th>
             <th>Price</th>
+            <th>In stock?</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>
@@ -116,8 +119,8 @@ class FilterableProductTable extends React.Component {
 
   render() {
     return(
-      <div>
-        <h2>Search here</h2>
+      <div className="border-black-1 margin-top-10px padding-all-5px width-300px">
+        <h2>Search Products</h2>
         <SearchBar
           filterText={this.state.filterText}
           inStockOnly={this.state.inStockOnly}
