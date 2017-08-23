@@ -22,13 +22,22 @@ class ProductRow extends React.Component {
   }
 }
 
+const noMatchRecord = (
+  <tr>
+    <td colSpan="3">No matching product(s).</td>
+  </tr>
+);
+
 class ProductTable extends React.Component {
   render() {
     var rows = [];
     var lastCategory = null;
+    let productName, tbodyData = '';
 
     this.props.products.forEach((product) => {
-      if (product.name.indexOf(this.props.filterText) === -1
+      productName = this.props.isCaseSensitive ? product.name.toLowerCase() : product.name;
+
+      if (productName.indexOf(this.props.filterText) === -1
         || (!product.stocked && this.props.inStockOnly)
       ) {
         return;
@@ -43,6 +52,8 @@ class ProductTable extends React.Component {
       lastCategory = product.category;
     });
 
+    tbodyData = (rows.length > 0) ? rows : noMatchRecord;
+
     return(
       <table className="border-black-1">
         <thead>
@@ -52,7 +63,7 @@ class ProductTable extends React.Component {
             <th>In stock?</th>
           </tr>
         </thead>
-        <tbody>{rows}</tbody>
+        <tbody>{tbodyData}</tbody>
       </table>
     );
   }
@@ -63,6 +74,7 @@ class SearchBar extends React.Component {
     super(props);
     this.handleFilterTextInputChange = this.handleFilterTextInputChange.bind(this);
     this.handleInStockInputChange = this.handleInStockInputChange.bind(this);
+    this.handleCaseSensitiveInputChange = this.handleCaseSensitiveInputChange.bind(this);
   }
 
   handleFilterTextInputChange(e) {
@@ -73,6 +85,10 @@ class SearchBar extends React.Component {
     this.props.onInStockInput(e.target.checked);
   }
 
+  handleCaseSensitiveInputChange(e) {
+    this.props.onCaseSensitiveInput(e.target.checked);
+  }
+
   render() {
     return(
       <form>
@@ -81,6 +97,12 @@ class SearchBar extends React.Component {
             onChange={this.handleFilterTextInputChange}
         />
         <p>
+          <input type="checkbox"
+            checked={this.props.isCaseSensitive}
+            onChange={this.handleCaseSensitiveInputChange}
+          />
+          {' '} Case sensitive search <br />
+
           <input type="checkbox"
             checked={this.props.inStockOnly}
             onChange={this.handleInStockInputChange}
@@ -98,11 +120,13 @@ class FilterableProductTable extends React.Component {
     super(props);
     this.state = {
       filterText: '',
-      inStockOnly: false
+      inStockOnly: false,
+      isCaseSensitive: true
     };
 
     this.handleFilterTextInput = this.handleFilterTextInput.bind(this);
     this.handleInStockInput = this.handleInStockInput.bind(this);
+    this.handleCaseSensitiveInput = this.handleCaseSensitiveInput.bind(this);
   }
 
   handleFilterTextInput(filterText) {
@@ -117,6 +141,12 @@ class FilterableProductTable extends React.Component {
     })
   }
 
+  handleCaseSensitiveInput(isCaseSensitive) {
+    this.setState({
+      isCaseSensitive: isCaseSensitive
+    })
+  }
+
   render() {
     return(
       <div className="border-black-1 margin-top-10px padding-all-5px width-300px">
@@ -124,13 +154,16 @@ class FilterableProductTable extends React.Component {
         <SearchBar
           filterText={this.state.filterText}
           inStockOnly={this.state.inStockOnly}
+          isCaseSensitive={this.state.isCaseSensitive}
           onFilterTextInput={this.handleFilterTextInput}
           onInStockInput={this.handleInStockInput}
+          onCaseSensitiveInput={this.handleCaseSensitiveInput}
         />
         <ProductTable
           products={this.props.products}
           filterText={this.state.filterText}
           inStockOnly={this.state.inStockOnly}
+          isCaseSensitive={this.state.isCaseSensitive}
         />
       </div>
     );
